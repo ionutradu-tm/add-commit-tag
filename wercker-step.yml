@@ -10,5 +10,4 @@ properties:
     reguired: false
   commit-message:
     type: string
-    required: false
-  
+    required: true
