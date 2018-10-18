@@ -1,5 +1,19 @@
-name: git-commit-tag
-version: 0.0.2
-description: Add environment variable $WERCKER_GIT_COMMIT_MESSAGE. It has the commit message.
+name: add-commit-tag
+version: 0.0.1
+description: Add commit tag
 keywords:
- git
+ - git
+ - commit
+ - tag
+ - wercker
+properties:
+  repo-name:
+    type: string
+    required: false
+  service-tag: 
+    type: string
+    reguired: false
+  commit-message:
+    type: string
+    required: false
+  
