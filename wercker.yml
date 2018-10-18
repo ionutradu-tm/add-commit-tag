@@ -1,6 +1,4 @@
 box: wercker/default
-  username: $DOCKER_REPO_USER
-  password: $DOCKER_REPO_PASSWORD
 
 build:
     steps:
