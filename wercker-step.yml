@@ -1,11 +1,6 @@
 name: add-commit-tag
 version: 0.0.1
 description: Add commit tag
-keywords:
- - git
- - commit
- - tag
- - wercker
 properties:
   repo-name:
     type: string
