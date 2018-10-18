@@ -1,5 +1,18 @@
-box: wercker/default
-
+#box: wercker/default
+#
+#build:
+#    # Steps make up the actions in your pipeline
+#    # Read more about steps on our dev center:
+#    # https://devcenter.wercker.com/development/steps/
+#  steps:
+#    - script:
+#        name: echo
+#        code: |
+#          echo "hello world!"
+box:
+  id: essentra/docker-wercker-tools
+  username: $DOCKER_REPO_USER
+  password: $DOCKER_REPO_PASSWORD
 build:
     # Steps make up the actions in your pipeline
     # Read more about steps on our dev center:
@@ -9,3 +22,4 @@ build:
         name: echo
         code: |
           echo "hello world!"
+
