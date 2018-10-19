@@ -1,14 +1,1 @@
-#box: wercker/default
-box: debian
-
-build:
-    steps:
-        - shellcheck:
-            files: run.sh
-        - script:
-            name: prepare output
-            code: rm -rf $WERCKER_ROOT/.git
-publish:
-  steps:
-  -internal/publish-step:
-  owner: wercker
+box: wercker/default
