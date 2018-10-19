@@ -1,23 +1,9 @@
-#box: wercker/default
-#
-#build:
-#    # Steps make up the actions in your pipeline
-#    # Read more about steps on our dev center:
-#    # https://devcenter.wercker.com/development/steps/
-#  steps:
-#    - script:
-#        name: echo
-#        code: |
-#          echo "hello world!"
-box: debian
+box: wercker/default
 
 build:
-    # Steps make up the actions in your pipeline
-    # Read more about steps on our dev center:
-    # https://devcenter.wercker.com/development/steps/
-  steps:
-    - script:
-        name: echo
-        code: |
-          echo "hello world2!"
-
+    steps:
+        - shellcheck:
+            files: run.sh
+        - script:
+            name: prepare output
+            code: rm -rf $WERCKER_ROOT/.git

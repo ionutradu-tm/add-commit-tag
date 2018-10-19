@@ -1,13 +1,28 @@
-name: add-commit-tag
-version: 0.0.1
-description: Add commit tag
+name: ssh-tunnel-test
+version: 0.1.3
+description: Open a SSH tunnel for the next command to make use of it.
+keywords:
+  - ssh
+  - tunnel
+  - remote
+  - port
 properties:
-  repo-name:
+  source-port:
     type: string
     required: false
-  service-tag: 
+  destination-port:
     type: string
-    reguired: false
-  commit-message:
+    required: false
+  destination-host:
     type: string
-    required: true
+    required: false
+  connection-string:
+    type: string
+    required: false
+  connection-port:
+    type: string
+    required: false
+  keepalive:
+    type: string
+    required: false
+
