@@ -10,8 +10,7 @@ build:
 
 publish:
  steps:
- - install-packages:
- packages: ca-certificates
-
- - internal/publish-step:
- owner: wercker
+   - install-packages:
+        packages: ca-certificates
+   - internal/publish-step:
+       owner: wercker
