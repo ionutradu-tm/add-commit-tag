@@ -3,9 +3,9 @@ name: slack-notifier
 version: 1.4.0
 summary: Posts Wercker build/deploy status to a Slack channel.
 tags:
- - notification
- - webhook
- - slack
+  notification
+  webhook
+  slack
 properties:
   - name: url
      type: string
