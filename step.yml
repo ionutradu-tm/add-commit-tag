@@ -1,12 +1,12 @@
 name: git-tag-commit
-version: 0.0.2
+version: 0.0.3
 summary: Adds a tag to a given commit
 keywords:
   - tag
   - tags
   - commit
 properties:
-  - name: messge
+  - name: message
     type: string
     required: false
   - name: repository
