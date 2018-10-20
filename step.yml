@@ -6,18 +6,18 @@ keywords:
   - tags
   - commit
 properties:
-   mess: 
+  - name: messge
     type: string
     required: false
-  tag:
-    type: string
-    required: true
-  repo:
+  - name: tag
     type: string
     required: false
-  branch:
+  - name: repository
     type: string
     required: false
-  commmit:
+  - name: branch
+    type: string
+    required: false
+  - name: commmit
     type: string
     required: false
