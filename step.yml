@@ -1,4 +1,23 @@
-# step.yml
-name: slack-notifier
-version: 1.4.0
-summary: Posts Wercker build/deploy status to a Slack channel.
+name: git-tag-commit
+version: 0.0.1
+description: Adds a tag to a given commit if the deploy passes
+keywords:
+  - tag
+  - tags
+  - commit
+properties:
+   mess: 
+    type: string
+    required: false
+  tag:
+    type: string
+    required: true
+  repo:
+    type: string
+    required: false
+  branch:
+    type: string
+    required: false
+  commmit:
+    type: string
+    required: false

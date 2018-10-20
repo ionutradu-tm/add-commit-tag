@@ -1,16 +1,8 @@
-# wercker.yml
-box: debian:stable-slim
+box: wercker/default
 build:
- steps:
+  steps:
    - shellcheck:
        files: run.sh
-   - script:
-       name: prepare output
-       code: rm -rf $WERCKER_ROOT/.git
-
 publish:
  steps:
-   - install-packages:
-        packages: ca-certificates
-   - internal/publish-step:
-       owner: iradu
+   - publish-step:
