@@ -3,6 +3,6 @@ build:
   steps:
    - shellcheck:
        files: run.sh
-publish:
- steps:
-   - publish-step:
+#publish:
+# steps:
+#   - publish-step:
