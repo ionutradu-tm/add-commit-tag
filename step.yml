@@ -9,9 +9,6 @@ properties:
   - name: messge
     type: string
     required: false
-  - name: tag
-    type: string
-    required: false
   - name: repository
     type: string
     required: false
