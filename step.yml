@@ -1,6 +1,6 @@
 name: git-tag-commit
 version: 0.0.1
-description: Adds a tag to a given commit if the deploy passes
+summary: Adds a tag to a given commit
 keywords:
   - tag
   - tags
