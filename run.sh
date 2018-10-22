@@ -1,8 +1,32 @@
 #!/bin/sh
+set -e
+set +o pipefail
 
-echo $WERCKER_GIT_TAG_COMMIT_MESSAGE
+patch=`echo $WERCKER_GIT_TAG_COMMIT_MESSAGE| grep -w -Eo "[0-9]+\.[0-9]+\.[0-9]+" | head -n1`
+version=`echo $WERCKER_GIT_TAG_COMMIT_MESSAGE| grep -w -Eo "[0-9]+\.[0-9]+" | head -n1`
 
-if [[ $WERCKER_GIT_TAG_COMMIT_MESSAGE =~ ([0-9]+\.[0-9]+)([^,]*) ]]; then echo "version: '${BASH_REMATCH[1]}'"; else echo "no match found"; fi
-#if [[ $WERCKER_ADD_COMMIT_TAG_MESS=~ ([0-9]+\.[0-9]+)([^,]*) ]]; then echo "version: '${BASH_REMATCH[1]}'"; else echo "no match found"; fi
-#if [[ $WERCKER_ADD_COMMIT_TAG_MESS=~ [0-9]+\.[0-9]+ ]]; then echo "version: '${BASH_REMATCH[1]}'"; else echo "no match found"; fi
+if [ -n "$patch" ]; then
+   tag=$patch
+   echo "Apply tag $tag to commit $commit"
+else
+   if [ -n "$version" ]; then
+      tag=$version
+      echo "Apply tag $tag to commit $commit"
+   else
+      echo "No version/patch found"
+      exit
+   fi
+fi
 
+git config --global user.email email@wercker.com
+git config --global user.name wercker
+
+rm -rf /tmp/$repository
+mkdir -p /tmp/$repository
+cd /tmp/$repository
+
+git clone -b $branch git@github.com:$user/$repository.git .
+echo "Apply tag $tag to commit $commit"
+git tag $tag $commit
+git push origin --tags
+rm -rf /tmp/$repository
