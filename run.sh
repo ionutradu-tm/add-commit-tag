@@ -7,11 +7,11 @@ version=`echo $WERCKER_GIT_TAG_COMMIT_MESSAGE| grep -w -Eo "[0-9]+\.[0-9]+" | he
 
 if [ -n "$patch" ]; then
    tag=$patch
-   echo "Apply tag $tag to commit $commit"
+   echo "Apply tag $tag to commit $WERCKER_GIT_TAG_COMMIT_COMMIT"
 else
    if [ -n "$version" ]; then
       tag=$version
-      echo "Apply tag $tag to commit $commit"
+      echo "Apply tag $tag to commit $WERCKER_GIT_TAG_COMMIT_COMMIT"
    else
       echo "No version/patch found"
       exit
@@ -21,11 +21,11 @@ fi
 git config --global user.email email@wercker.com
 git config --global user.name wercker
 
-rm -rf /tmp/$repository
-mkdir -p /tmp/$repository
-cd /tmp/$repository
+rm -rf /tmp/$WERCKER_GIT_TAG_COMMIT_REPOSITORY
+mkdir -p /tmp/$WERCKER_GIT_TAG_COMMIT_REPOSITORY
+cd /tmp/$WERCKER_GIT_TAG_COMMIT_REPOSITORY
 
-git clone -b $branch git@github.com:$user/$repository.git .
-git tag $tag $commit
+git clone -b $$WERCKER_GIT_TAG_COMMIT_BRANCH git@github.com:$WERCKER_GIT_TAG_COMMIT_USER/$WERCKER_GIT_TAG_COMMIT_REPOSITORY.git .
+git tag $tag $WERCKER_GIT_TAG_COMMIT_COMMIT
 git push origin --tags
-rm -rf /tmp/$repository
+rm -rf /tmp/$WERCKER_GIT_TAG_COMMIT_REPOSITORY
