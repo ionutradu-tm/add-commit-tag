@@ -26,7 +26,6 @@ mkdir -p /tmp/$repository
 cd /tmp/$repository
 
 git clone -b $branch git@github.com:$user/$repository.git .
-echo "Apply tag $tag to commit $commit"
 git tag $tag $commit
 git push origin --tags
 rm -rf /tmp/$repository
