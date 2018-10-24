@@ -1,5 +1,5 @@
 name: git-tag-commit
-version: 0.0.7
+version: 0.0.8
 summary: Adds a tag to a given commit
 keywords:
   - tag
