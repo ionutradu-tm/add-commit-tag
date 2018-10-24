@@ -5,7 +5,6 @@ keywords:
   - tag
   - tags
   - commit
-  - version
 properties:
   - name: message
     type: string
