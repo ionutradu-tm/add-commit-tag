@@ -1,6 +1,28 @@
 #!/bin/sh
 
-#set -eo pipefail
+set -eo pipefail
+
+
+if [ -z "$WERCKER_GIT_TAG_COMMIT_MESSAGE" ]; then
+  fail "You must specify a message"
+fi
+
+if [ -z "$WERCKER_GIT_TAG_COMMIT_COMMIT" ]; then
+  fail "You must specify a commit"
+fi
+
+if [ -z "$WERCKER_GIT_TAG_COMMIT_REPOSITORY" ]; then
+  fail "You must specify a repository"
+fi
+
+if [ -z "$WERCKER_GIT_TAG_COMMIT_BRANCH" ]; then
+  fail "You must specify a branch"
+fi
+
+if [ -z "$WERCKER_GIT_TAG_COMMIT_USER" ]; then
+  fail "You must specify a user"
+fi
+
 
 patch=`echo $WERCKER_GIT_TAG_COMMIT_MESSAGE| grep -w -Eo "[0-9]+\.[0-9]+\.[0-9]+" | head -n1`
 version=`echo $WERCKER_GIT_TAG_COMMIT_MESSAGE| grep -w -Eo "[0-9]+\.[0-9]+" | head -n1`
