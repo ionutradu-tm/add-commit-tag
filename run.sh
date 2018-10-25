@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eo pipefail
+#set -eo pipefail
 
 
 if [ -z "$WERCKER_GIT_TAG_COMMIT_MESSAGE" ]; then
