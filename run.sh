@@ -4,23 +4,28 @@ set -eo pipefail
 
 
 if [ -z "$WERCKER_GIT_TAG_COMMIT_MESSAGE" ]; then
-  fail "You must specify a message"
+  echo "You must specify a message"
+  exit
 fi
 
 if [ -z "$WERCKER_GIT_TAG_COMMIT_COMMIT" ]; then
-  fail "You must specify a commit"
+  echo "You must specify a commit"
+  exit
 fi
 
 if [ -z "$WERCKER_GIT_TAG_COMMIT_REPOSITORY" ]; then
-  fail "You must specify a repository"
+  echo "You must specify a repository"
+  exit
 fi
 
 if [ -z "$WERCKER_GIT_TAG_COMMIT_BRANCH" ]; then
-  fail "You must specify a branch"
+  echo "You must specify a branch"
+  exit
 fi
 
 if [ -z "$WERCKER_GIT_TAG_COMMIT_USER" ]; then
-  fail "You must specify a user"
+  echo "You must specify a user"
+  exit
 fi
 
 
