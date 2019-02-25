@@ -54,6 +54,6 @@ if [ -n "$tag" ]; then
 
   git clone -b $WERCKER_GIT_TAG_COMMIT_BRANCH git@github.com:$WERCKER_GIT_TAG_COMMIT_USER/$WERCKER_GIT_TAG_COMMIT_REPOSITORY.git .
   git tag $tag $WERCKER_GIT_TAG_COMMIT_COMMIT
-  git push origin --tags
+  git push origin $tag
   rm -rf /tmp/$WERCKER_GIT_TAG_COMMIT_REPOSITORY
 fi
